@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Email Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Netflix Email Generator</h1>
+        <p>Enter your details to generate a Netflix email.</p>
+        <form id="emailForm">
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Generate Email</button>
+        </form>
+        <p id="generatedEmail"></p>
+    </div>
+
+    <script>
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+
+        // Sanitize the name to create a valid email
+        const sanitizedName = name.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+        document.getElementById('generatedEmail').innerText = `Generated Email: ${sanitizedName}@netflix.com`;
+        
+        // Redirect to offers after a short delay
+        setTimeout(function() {
+            window.location.href = "https://amzn.to/3FOaeB8"; // Replace with your actual offer link
+        }, 3000); // 3-second delay for user to see generated email
+    });
+</script>
+
+</body>
+</html>
+
+<style>
+    body {
+        background-color: black;
+        color: red;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container {
+        text-align: center;
+        background: rgba(255, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    input, button {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px;
+    }
+    button {
+        background: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
